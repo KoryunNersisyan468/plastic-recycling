@@ -4,6 +4,7 @@ import Problem from "./Problem";
 import Process from "./Process";
 import Advantages from "./Advantages";
 import Contact from "./Contact";
+import bgImg from "/bg.jpg";
 
 export default function Main() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,7 +28,7 @@ export default function Main() {
         {/* Parallax background */}
         <m.div
           style={{
-            backgroundImage: "url('/23.jpg')",
+            backgroundImage: `url(${bgImg})`,
             y,
           }}
           className="absolute inset-0 bg-cover bg-center"

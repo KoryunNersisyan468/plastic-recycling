@@ -1,5 +1,7 @@
 import { m } from "framer-motion";
 import { useState } from "react";
+import contact from "/contact.jpg";
+
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -55,7 +57,7 @@ export default function Contact() {
 
       {/* Изображение */}
       <m.img
-        src="/contact.jpg"
+        src={contact}
         alt="Contact"
         className="mt-10 rounded-2xl shadow-lg w-full max-w-md object-cover"
         initial={{ opacity: 0, scale: 0.9 }}

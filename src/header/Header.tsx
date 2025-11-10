@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { m } from "framer-motion";
-
+import logo from "/logo.svg"
 interface HeaderProps {
   siteName?: string;
 }
@@ -35,7 +35,7 @@ export default function Header({ siteName = "EcoCycle" }: HeaderProps) {
       <m.div
         className="flex items-center gap-2"
       >
-        <span className="text-2xl"><img className="w-7 h-7" src="/logo.svg" alt="logo" /></span>
+        <span className="text-2xl"><img className="w-7 h-7" src={logo} alt="logo" /></span>
         <h1 className="font-bold text-xl">{siteName}</h1>
       </m.div>
 

@@ -1,5 +1,7 @@
 import { m } from "framer-motion";
-
+import img1 from "/recycle1.png";
+import img2 from "/recycle2.png";
+import img3 from "/plastic.jpeg";
 interface SectionProps {
   onNext?: () => void;
 }
@@ -25,9 +27,9 @@ export default function Process({ onNext }: SectionProps) {
         transition={{ delay: 0.3 }}
       >
         {[
-          { img: "/recycle2.png", title: "Հավաքում", text: "Պլաստիկի հավաքագրում համայնքներից և աղբամաններից։" },
-          { img: "/plastic.jpeg", title: "Տեսակավորում", text: "Պլաստիկը բաժանվում է ըստ տեսակի և գույնի։" },
-          { img: "/cleanearth.jpg", title: "Վերամշակում", text: "Նյութը հալվում և վերածվում է նոր արտադրանքի։" },
+          { img: img1, title: "Հավաքում", text: "Պլաստիկի հավաքագրում համայնքներից և աղբամաններից։" },
+          { img: img2, title: "Տեսակավորում", text: "Պլաստիկը բաժանվում է ըստ տեսակի և գույնի։" },
+          { img: img3, title: "Վերամշակում", text: "Նյութը հալվում և վերածվում է նոր արտադրանքի։" },
         ].map((step, i) => (
           <m.div
             key={i}
