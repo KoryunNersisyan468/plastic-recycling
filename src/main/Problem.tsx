@@ -1,14 +1,12 @@
 import { m } from "framer-motion";
+import img from "/recycle1.png";
+import type { ISectionProps } from "../types/type";
 
-interface SectionProps {
-  onNext?: () => void;
-}
-
-export default function Problem({ onNext }: SectionProps) {
+export default function Problem({ onNext }: ISectionProps) {
   return (
     <section
       id="problem"
-      className="relative min-h-screen bg-white flex flex-col justify-center items-center text-center px-6 py-20"
+      className="relative min-h-screen bg-[#E8F5E9] flex flex-col justify-center items-center text-center px-6 py-20"
     >
       <m.h2
         className="text-3xl sm:text-5xl font-bold text-[#2E7D32] mb-6"
@@ -30,7 +28,7 @@ export default function Problem({ onNext }: SectionProps) {
       </m.p>
 
       <m.img
-        src="/recycle1.png"
+        src={img}
         alt="Plastic Pollution"
         className="rounded-2xl h-80 object-cover shadow-lg w-full max-w-xl mb-6"
         initial={{ opacity: 0, scale: 0.9 }}
@@ -47,8 +45,7 @@ export default function Problem({ onNext }: SectionProps) {
         Ինչպես է աշխատում ♻️
       </m.button>
 
-      {/* стрелка вниз */}
-      <m.div
+     <m.div
         className="absolute bottom-8 text-[#2E7D32] text-3xl cursor-pointer select-none"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}

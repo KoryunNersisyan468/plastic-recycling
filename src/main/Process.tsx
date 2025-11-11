@@ -1,12 +1,8 @@
 import { m } from "framer-motion";
-import img1 from "/recycle1.png";
-import img2 from "/recycle2.png";
-import img3 from "/plastic.jpeg";
-interface SectionProps {
-  onNext?: () => void;
-}
+import type { ISectionProps } from "../types/type";
+import { processItems } from "../data/processItems";
 
-export default function Process({ onNext }: SectionProps) {
+export default function Process({ onNext }: ISectionProps) {
   return (
     <section
       id="process"
@@ -26,19 +22,21 @@ export default function Process({ onNext }: SectionProps) {
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        {[
-          { img: img1, title: "Հավաքում", text: "Պլաստիկի հավաքագրում համայնքներից և աղբամաններից։" },
-          { img: img2, title: "Տեսակավորում", text: "Պլաստիկը բաժանվում է ըստ տեսակի և գույնի։" },
-          { img: img3, title: "Վերամշակում", text: "Նյութը հալվում և վերածվում է նոր արտադրանքի։" },
-        ].map((step, i) => (
+        {processItems.map((step, i) => (
           <m.div
             key={i}
             className="bg-white rounded-2xl shadow-lg overflow-hidden"
             whileHover={{ scale: 1.03 }}
           >
-            <img src={step.img} alt={step.title} className="w-full h-48 object-cover" />
+            <img
+              src={step.img}
+              alt={step.title}
+              className="w-full h-48 object-cover"
+            />
             <div className="p-4">
-              <h3 className="text-xl font-semibold text-[#2E7D32]">{step.title}</h3>
+              <h3 className="text-xl font-semibold text-[#2E7D32]">
+                {step.title}
+              </h3>
               <p className="text-gray-700">{step.text}</p>
             </div>
           </m.div>
@@ -49,10 +47,9 @@ export default function Process({ onNext }: SectionProps) {
         onClick={onNext}
         className="mt-10 bg-[#388E3C] text-white px-6 py-3 rounded-lg hover:bg-[#2E7D32]"
       >
-        Դիտել առավելությունները →
+        Դիտել առավելությունները
       </m.button>
 
-      {/* стрелка вниз */}
       <m.div
         className="absolute bottom-8 text-[#2E7D32] text-3xl cursor-pointer select-none"
         animate={{ y: [0, 10, 0] }}

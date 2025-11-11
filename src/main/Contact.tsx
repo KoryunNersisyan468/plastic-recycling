@@ -2,10 +2,9 @@ import { m } from "framer-motion";
 import { useState } from "react";
 import contact from "/contact.jpg";
 
-
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const email = "ecocycle@info.am";
+  const email = "hovsepyan-93@mail.ru";
 
   const copyEmail = async () => {
     try {
@@ -31,7 +30,7 @@ export default function Contact() {
       </m.h2>
 
       <m.p
-        className="text-gray-700 max-w-2xl mb-10 text-lg"
+        className="text-gray-700 max-w-3xl mb-8 text-lg"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
@@ -39,15 +38,10 @@ export default function Contact() {
         Եթե ցանկանում եք միանալ մեր նախաձեռնությանը կամ հարց ունեք՝ գրել մեզ․
       </m.p>
 
-      {/* Кнопки действий */}
-      <div className="flex flex-col sm:flex-row gap-4">
-     
-       
-
-        {/* Copy email */}
+      <div className="flex flex-col sm:flex-row gap-3">
         <m.button
           onClick={copyEmail}
-          className="bg-white text-[#2E7D32] border border-[#2E7D32] px-6 py-3 rounded-lg hover:bg-[#C8E6C9] transition"
+          className="bg-white text-[#2E7D32] border border-[#2E7D32] px-5 py-2 rounded-lg hover:bg-[#C8E6C9] transition"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -55,24 +49,20 @@ export default function Contact() {
         </m.button>
       </div>
 
-      {/* Изображение */}
       <m.img
         src={contact}
         alt="Contact"
-        className="mt-10 rounded-2xl shadow-lg w-full max-w-md object-cover"
+        className="mt-9 rounded-2xl shadow-lg h-80 max-w-md object-cover"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
       />
 
-      {/* Нижняя стрелка — назад к началу */}
       <m.div
         className="absolute bottom-8 text-[#2E7D32] text-3xl cursor-pointer select-none"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        onClick={() =>
-          window.scrollTo({ top: 0, behavior: "smooth" })
-        }
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         ↑
       </m.div>

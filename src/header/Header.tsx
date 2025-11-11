@@ -1,64 +1,29 @@
 import { useEffect, useState } from "react";
 import { m } from "framer-motion";
-import logo from "/logo.svg"
-interface HeaderProps {
-  siteName?: string;
-}
+import icon from "/icon.svg";
+import { messages } from "../data/message";
+import Clock from "./Clock";
+import { Message } from "./Message";
 
-export default function Header({ siteName = "EcoCycle" }: HeaderProps) {
-  const [time, setTime] = useState<Date>(new Date());
+export default function Header() {
   const [index, setIndex] = useState<number>(0);
 
-  const messages: string[] = [
-    "Մաքուր մոլորակ՝ մաքուր ապագա 🌍",
-    "Վերամշակիր, մի՛ նետիր ♻️",
-    "Պահպանիր բնությունը՝ այսօր և միշտ 🌿",
-  ];
-
-  // Обновляем время каждую секунду
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Меняем сообщение каждые 5 секунд
   useEffect(() => {
     const msgTimer = setInterval(() => {
       setIndex((prev) => (prev + 1) % messages.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(msgTimer);
-  }, [messages.length]);
+  }, []);
 
   return (
-    <header className="w-full bg-[#2E7D32] text-white py-3 px-6 flex justify-between items-center shadow-lg sticky top-0 z-50">
-      {/* Логотип */}
-      <m.div
-        className="flex items-center gap-2"
-      >
-        <span className="text-2xl"><img className="w-7 h-7" src={logo} alt="logo" /></span>
-        <h1 className="font-bold text-xl">{siteName}</h1>
+    <header className="w-full h-16 py-3 px-3 sm:px-5 md:px-6 bg-[#2E7D32] text-white flex justify-between items-center shadow-lg sticky top-0 z-50">
+      <m.div className="flex items-center gap-2">
+        <span className="text-2xl">
+          <img className="w-10 sm:w-16 md:w-20 h-10" src={icon} alt="icon" />
+        </span>
       </m.div>
-
-      {/* Сообщение */}
-      <m.p
-        key={index}
-        className="italic text-sm sm:text-base text-center max-w-xs"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.6 }}
-      >
-        {messages[index]}
-      </m.p>
-
-      {/* Часы */}
-      <m.div
-        className="font-mono text-sm sm:text-lg"
-        animate={{ scale: [1, 1.05, 1] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-      >
-        {time.toLocaleTimeString("hy-AM")}
-      </m.div>
+      <Message text={messages[index]} index={index} />
+      <Clock />
     </header>
   );
 }

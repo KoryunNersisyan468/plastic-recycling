@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     if (isFirstLoad.current) {
       isFirstLoad.current = false;
-      return; // не скроллим при первой загрузке
+      return; 
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);

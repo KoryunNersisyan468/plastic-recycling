@@ -1,17 +1,8 @@
 import { m } from "framer-motion";
+import type { ISectionProps } from "../types/type";
+import { items } from "../data/items";
 
-interface Props {
-  onNext: () => void;
-}
-
-export default function Advantages({ onNext }: Props) {
-  const items = [
-    "Պակաս աղբ բնության մեջ 🌱",
-    "Նոր օգտակար արտադրանքներ ♻️",
-    "Էներգիայի խնայողություն ⚡",
-    "Մաքուր միջավայր և առողջություն 🌍",
-  ];
-
+export default function Advantages({ onNext }: ISectionProps) {
   return (
     <section
       id="advantages"
@@ -40,7 +31,6 @@ export default function Advantages({ onNext }: Props) {
         ))}
       </div>
 
-      {/* Стрелка вниз */}
       <m.div
         className="absolute bottom-6 text-3xl text-[#2E7D32] cursor-pointer select-none"
         animate={{ y: [0, 10, 0] }}
