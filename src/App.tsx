@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import React from "react";
+import { useEffect, useRef, Suspense } from "react";
 import { useLocation } from "react-router";
 import Header from "./header/Header";
 import Main from "./main/Main";
-import Footer from "./footer/Footer";
+const Footer = React.lazy(() => import("./footer/Footer"));
 
 function App() {
   const { pathname } = useLocation();
@@ -11,7 +12,7 @@ function App() {
   useEffect(() => {
     if (isFirstLoad.current) {
       isFirstLoad.current = false;
-      return; 
+      return;
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
@@ -20,7 +21,9 @@ function App() {
     <>
       <Header />
       <Main />
-      <Footer />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Footer />
+      </Suspense>
     </>
   );
 }

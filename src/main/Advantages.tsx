@@ -1,6 +1,6 @@
 import { m } from "framer-motion";
 import type { ISectionProps } from "../types/type";
-import { items } from "../data/items";
+import { items } from "../data/items.tsx";
 
 export default function Advantages({ onNext }: ISectionProps) {
   return (
@@ -14,7 +14,7 @@ export default function Advantages({ onNext }: ISectionProps) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Վերամշակման առավելությունները 🌿
+        Վերամշակման առավելությունները
       </m.h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
@@ -26,7 +26,7 @@ export default function Advantages({ onNext }: ISectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.2 }}
           >
-            <p className="text-lg text-gray-800">{item}</p>
+            <p className="text-lg flex items-center justify-center gap-2 text-gray-800">{item.icon}{item.text}</p>
           </m.div>
         ))}
       </div>

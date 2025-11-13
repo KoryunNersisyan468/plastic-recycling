@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import { useState } from "react";
 import contact from "/contact.jpg";
+import { Mail, Copy } from "lucide-react";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -22,11 +23,11 @@ export default function Contact() {
       className="relative min-h-screen bg-[#E8F5E9] flex flex-col justify-center items-center text-center px-6 py-20"
     >
       <m.h2
-        className="text-3xl sm:text-5xl font-bold text-[#2E7D32] mb-6"
+        className="text-3xl sm:text-5xl font-bold text-[#2E7D32] mb-6 flex items-center gap-2 justify-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
       >
-        Կապ մեզ հետ 📬
+        <Mail size={32} /> Կապ մեզ հետ
       </m.h2>
 
       <m.p
@@ -41,11 +42,19 @@ export default function Contact() {
       <div className="flex flex-col sm:flex-row gap-3">
         <m.button
           onClick={copyEmail}
-          className="bg-white text-[#2E7D32] border border-[#2E7D32] px-5 py-2 rounded-lg hover:bg-[#C8E6C9] transition"
+          className="bg-white text-[#2E7D32] border border-[#2E7D32] px-5 py-2 rounded-lg hover:bg-[#C8E6C9] flex items-center gap-2 transition"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          {copied ? "✅ Պատճենված է" : "📋 Պատճենել հասցեն"}
+          {copied ? (
+            <>
+              ✅ Պատճենված է
+            </>
+          ) : (
+            <>
+              <Copy size={20} /> Պատճենել հասցեն
+            </>
+          )}
         </m.button>
       </div>
 

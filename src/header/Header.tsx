@@ -22,7 +22,7 @@ export default function Header() {
           <img className="w-10 sm:w-16 md:w-20 h-10" src={icon} alt="icon" />
         </span>
       </m.div>
-      <Message text={messages[index]} index={index} />
+      <Message message={messages[index]} index={index} />
       <Clock />
     </header>
   );

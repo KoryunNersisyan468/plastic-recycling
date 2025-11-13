@@ -13,7 +13,7 @@ export default function Process({ onNext }: ISectionProps) {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
       >
-        Վերամշակման գործընթացը 🔄
+        Վերամշակման գործընթացը
       </m.h2>
 
       <m.div

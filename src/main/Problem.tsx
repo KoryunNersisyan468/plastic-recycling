@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import img from "/recycle1.png";
 import type { ISectionProps } from "../types/type";
+import recycle from "/recycle.png"
 
 export default function Problem({ onNext }: ISectionProps) {
   return (
@@ -14,7 +15,7 @@ export default function Problem({ onNext }: ISectionProps) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Պլաստիկի խնդիրները 🌊
+        Պլաստիկի խնդիրները
       </m.h2>
 
       <m.p
@@ -38,11 +39,12 @@ export default function Problem({ onNext }: ISectionProps) {
 
       <m.button
         onClick={onNext}
-        className="bg-[#66BB6A] text-white px-6 py-3 rounded-lg text-lg hover:bg-[#5DAE5F] transition"
+        className="bg-[#66BB6A] flex gap-1 md:gap-2 items-center justify-center text-white px-6 py-3 rounded-lg text-lg hover:bg-[#5DAE5F] transition"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        Ինչպես է աշխատում ♻️
+        Ինչպես է աշխատում 
+        <img className="w-8" src={recycle} alt="recycle" />
       </m.button>
 
      <m.div
