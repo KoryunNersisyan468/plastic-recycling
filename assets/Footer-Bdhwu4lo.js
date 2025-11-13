@@ -1,0 +1,1 @@
+import{j as e}from"./index-B4RFsUoq.js";function s(){return e.jsx("footer",{className:"bg-[#66BB6A] text-white text-center px-1 py-4 mt-auto",children:e.jsxs("p",{className:"text-sm",children:["© ",new Date().getFullYear()," ",e.jsx("span",{children:"Պլաստիկի Վերամշակում. Բոլոր իրավունքները պաշտպանված են."})]})})}export{s as default};
