@@ -7,6 +7,8 @@ const Contact = React.lazy(() => import("./Contact"));
 const Advantages = React.lazy(() => import("./Advantages"));
 const Process = React.lazy(() => import("./Process"));
 const Statistics = React.lazy(() => import("./Statistics"));
+const Gallery = React.lazy(() => import("./Gallery"));
+
 
 export default function Main() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,12 +21,10 @@ export default function Main() {
     <main ref={containerRef} className="w-full overflow-x-hidden">
       <HomeSection onNext={() => scrollTo("problem")} />
       <Problem onNext={() => scrollTo("process")} />
-      <HomeSection onNext={() => scrollTo("problem")} />
-      <Problem onNext={() => scrollTo("process")} />
-      
       <Suspense fallback={<div>Loading...</div>}>
         <Process onNext={() => scrollTo("advantages")} />
-        <Advantages onNext={() => scrollTo("statistics")} />
+        <Advantages onNext={() => scrollTo("gallery")} />
+        <Gallery onNext={() => scrollTo("statistics")} />
         <Statistics onNext={() => scrollTo("contact")} />
         <Contact />
       </Suspense>
